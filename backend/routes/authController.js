@@ -28,7 +28,6 @@ class AuthController {
       const hashPass = await bcrypt.hash(password, 10);
       let userRole = await Role.findOne({ value: "USER" });
 
-      // якщо ролі немає — створюємо
       if (!userRole) {
         userRole = new Role({ value: "USER" });
         await userRole.save();
